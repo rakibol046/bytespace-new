@@ -54,6 +54,20 @@
   -webkit-mask-repeat: no-repeat;
 }
 
+/* Blue background with the 120px column/row grid from the Figma frames
+   (2px white lines at 12% opacity). Vertical lines sit on the left edge of
+   each 120px column, counted from the centred 1440px artboard; horizontal
+   lines sit on the bottom edge of each 120px row from the section top. */
+@utility bytespace-grid {
+  background-color: var(--color-primary);
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.12) 2px, transparent 2px),
+    linear-gradient(to top, rgb(255 255 255 / 0.12) 2px, transparent 2px);
+  background-size: 120px 120px;
+  /* 50% + 60px puts a line exactly on the page centre (720 = 6 × 120). */
+  background-position: calc(50% + 60px) 0;
+}
+
 @utility shadow-soft {
   filter: url(#shadow-soft);
 }

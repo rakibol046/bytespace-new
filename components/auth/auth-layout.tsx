@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { GridBackdrop } from "@/components/home/grid-backdrop";
 import { AuthIllustration } from "./auth-illustration";
 
 type AuthLayoutProps = {
@@ -20,9 +19,7 @@ type AuthLayoutProps = {
  */
 export function AuthLayout({ tagline, description, children }: AuthLayoutProps) {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-primary">
-      <GridBackdrop />
-
+    <div className="bytespace-grid relative min-h-screen overflow-hidden">
       <div className="relative mx-auto max-w-[1440px] xl:h-[1024px]">
         <header className="mx-auto max-w-[611px] px-4 pt-8 sm:px-8 xl:absolute xl:top-[35px] xl:left-[calc(50%-598px)] xl:p-0">
           <Link href="/" aria-label="ByteSpace home" className="inline-block">

@@ -1,12 +1,10 @@
 import Image from "next/image";
 import { Ornament, fromCenter } from "@/components/ui/ornament";
 import { HappyStudentsCard, LearningProgressCard, TopicCard } from "@/components/ui/stat-cards";
-import { GridBackdrop } from "./grid-backdrop";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-primary" aria-labelledby="hero-title">
-      <GridBackdrop />
+    <section className="bytespace-grid relative overflow-hidden" aria-labelledby="hero-title">
 
       <div className="relative mx-auto flex max-w-[1440px] flex-col items-center px-4 pt-[140px] sm:px-8 xl:block xl:h-[1024px] xl:px-0 xl:pt-0">
         {/* Headline, subtitle and search */}

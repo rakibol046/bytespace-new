@@ -1,15 +1,12 @@
 import Link from "next/link";
 import { Ornament, fromCenter } from "@/components/ui/ornament";
-import { GridBackdrop } from "./grid-backdrop";
 
 export function CreatorCta() {
   return (
     <section
       aria-labelledby="cta-title"
-      className="relative overflow-hidden bg-primary px-4 py-20 sm:px-8 xl:h-[488px] xl:px-0 xl:pt-[85px] xl:pb-0"
+      className="bytespace-grid relative overflow-hidden px-4 py-20 sm:px-8 xl:h-[488px] xl:px-0 xl:pt-[85px] xl:pb-0"
     >
-      <GridBackdrop />
-
       <div className="relative z-10 mx-auto flex max-w-[964px] flex-col items-center gap-10 text-center">
         <h2 id="cta-title" className="font-heading max-w-[710px] text-[32px] text-shuttle-50 md:text-[44px] leading-[1.2] md:leading-[53px]">
           Unlock Your Potential as a Creator with ByteSpace
