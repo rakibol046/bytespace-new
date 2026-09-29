@@ -40,11 +40,22 @@ export function LearningProgressCard({ roomy, className }: PlacedProps & { roomy
   );
 }
 
-/** "Happy Students" card with rating and learner avatars. */
-export function HappyStudentsCard({ compact, className }: PlacedProps & { compact?: boolean }) {
+/**
+ * "Happy Students" card with rating and learner avatars. The `lime` tone is
+ * the variant used on the sign-in and sign-up pages.
+ */
+export function HappyStudentsCard({
+  compact,
+  tone = "white",
+  className,
+}: PlacedProps & { compact?: boolean; tone?: "white" | "lime" }) {
+  const lime = tone === "lime";
+
   return (
     <div
-      className={`flex w-[258px] flex-col items-start justify-center gap-2 rounded-2xl bg-white p-4 ${className ?? ""}`}
+      className={`flex w-[258px] flex-col items-start justify-center gap-2 rounded-2xl p-4 ${
+        lime ? "bg-lime" : "bg-white"
+      } ${className ?? ""}`}
     >
       <div className="flex flex-col items-start">
         <p
@@ -61,7 +72,7 @@ export function HappyStudentsCard({ compact, className }: PlacedProps & { compac
           </p>
           <span className="relative size-4 shrink-0">
             <Image
-              src="/assets/icons/star.svg"
+              src={lime ? "/assets/icons/star-blue.svg" : "/assets/icons/star.svg"}
               alt=""
               width={13.1625}
               height={12.5676}
@@ -70,7 +81,7 @@ export function HappyStudentsCard({ compact, className }: PlacedProps & { compac
           </span>
         </div>
       </div>
-      <AvatarStack avatars={happyStudentAvatars} size={43} countLabel="2K+" />
+      <AvatarStack avatars={happyStudentAvatars} size={43} countLabel="2K+" countTone={lime ? "ink" : "lime"} />
     </div>
   );
 }

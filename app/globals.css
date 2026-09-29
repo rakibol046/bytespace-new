@@ -18,6 +18,8 @@
   --color-surface: #fafafa;
   --color-track: #f6f6f6;
   --color-thumb: #443131;
+  --color-divider: #d1d1d1; /* auth "or" rule and social buttons */
+  --color-muted: #888888;
 }
 
 @theme inline {

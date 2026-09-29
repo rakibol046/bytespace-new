@@ -5,7 +5,7 @@ type AvatarStackProps = {
   /** Diameter of each avatar in px. */
   size: 32 | 43;
   countLabel: string;
-  countTone?: "lime" | "dark";
+  countTone?: "lime" | "dark" | "ink";
 };
 
 /** Overlapping learner avatars followed by a count bubble. */
@@ -27,7 +27,11 @@ export function AvatarStack({ avatars, size, countLabel, countTone = "lime" }: A
       ))}
       <span
         className={`relative flex shrink-0 items-center justify-center rounded-full ${
-          countTone === "lime" ? "bg-lime text-shuttle-950" : "bg-black text-white"
+          {
+            lime: "bg-lime text-shuttle-950",
+            dark: "bg-black text-white",
+            ink: "bg-shuttle-950 text-shuttle-50",
+          }[countTone]
         } ${
           size === 43
             ? "size-[43px] text-xs leading-[18px] font-bold"

@@ -4,7 +4,7 @@ import { CourseCard } from "@/components/ui/course-card";
 import { Ornament } from "@/components/ui/ornament";
 import { HappyStudentsCard, LearningProgressCard, RevenueCard } from "@/components/ui/stat-cards";
 import { courses, creatorBenefits, growthStats } from "@/lib/home-content";
-import { ScaledArtboard } from "./scaled-artboard";
+import { ScaledArtboard } from "@/components/ui/scaled-artboard";
 
 function GrowthArtboard() {
   return (
