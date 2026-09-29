@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Design tokens from the ByteSpace Figma file (variables + styles). */
+@theme {
+  --color-primary: #003be2; /* Persian Blue/800 */
+  --color-lime: #d4fb20; /* Electric Lime/400 */
+  --color-lime-strong: #cbfc01; /* Electric Lime/500 */
+  --color-shuttle-50: #f5f5f6;
+  --color-shuttle-100: #e5e6e8;
+  --color-shuttle-200: #ced0d3;
+  --color-shuttle-300: #abaeb5;
+  --color-shuttle-400: #82868e;
+  --color-shuttle-700: #4b4c53;
+  --color-shuttle-900: #3a3b3f;
+  --color-shuttle-950: #242528;
+  --color-charcoal: #4f4f4f; /* Black/700 */
+  --color-ink: #040819;
+  --color-surface: #fafafa;
+  --color-track: #f6f6f6;
+  --color-thumb: #443131;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-poppins: var(--ff-poppins);
+  --font-satoshi: var(--ff-satoshi);
+  --font-clash: var(--ff-clash);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Heading styles: Poppins SemiBold, 1.2 line height, -1% tracking.
+   Figma lays out percentage line heights on whole pixels (44 x 1.2 = 52.8
+   renders as 53px), so line heights below are the rounded values. */
+@utility font-heading {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+@utility body-l {
+  font-family: var(--font-satoshi);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+/* Colour layer for the 3D ornaments: the flat tint is masked to the
+   ornament's silhouette and blended with hard-light, as in Figma. */
+@utility ornament-tint {
+  mix-blend-mode: hard-light;
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+}
+
+@utility shadow-soft {
+  filter: url(#shadow-soft);
+}
+
+/* Keyboard focus: an outline in the element's own text colour stays visible
+   on both the blue and the light sections. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-shuttle-950);
+  font-family: var(--font-satoshi), system-ui, sans-serif;
 }
