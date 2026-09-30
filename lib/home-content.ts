@@ -1,68 +1,4 @@
-export type Course = {
-  title: string;
-  creator: string;
-  image: string;
-  level: string;
-  rating: string;
-  price: string;
-  lessons: string;
-  duration: string;
-  comments: string;
-  learnersCount: string;
-  learnerAvatars: string[];
-};
-
-const cardLearners = [
-  "/assets/avatars/avatar-02.png",
-  "/assets/avatars/avatar-08.png",
-  "/assets/avatars/avatar-09.png",
-  "/assets/avatars/avatar-10.png",
-];
-
-const courseDefaults = {
-  creator: "purepearl studio",
-  level: "Beginner",
-  rating: "4.5",
-  price: "$25",
-  lessons: "17 Lessons",
-  duration: "2 hours 16 mins",
-  comments: "59 Comments",
-  learnersCount: "26+",
-  learnerAvatars: cardLearners,
-};
-
-export const courses: Course[] = [
-  {
-    ...courseDefaults,
-    title: "Learn Figma from Basic",
-    image: "/assets/courses/learn-figma-from-basic.jpg",
-  },
-  {
-    ...courseDefaults,
-    title: "Build Digital Asset",
-    image: "/assets/courses/build-digital-asset.jpg",
-  },
-  {
-    ...courseDefaults,
-    title: "the Power of Big Data",
-    image: "/assets/courses/power-of-big-data.jpg",
-  },
-  {
-    ...courseDefaults,
-    title: "Balancing Productivity and Self-Care",
-    image: "/assets/courses/balancing-productivity.jpg",
-  },
-  {
-    ...courseDefaults,
-    title: "Mastering Money Management",
-    image: "/assets/courses/mastering-money-management.jpg",
-  },
-  {
-    ...courseDefaults,
-    title: "From Idea to Startup Success",
-    image: "/assets/courses/idea-to-startup.jpg",
-  },
-];
+export { courses } from "@/lib/data/courses";
 
 /** Tab rows are kept as in the design so desktop wraps exactly like Figma. */
 export const categoryTabRows: string[][] = [
@@ -155,29 +91,37 @@ export const testimonials = [
   },
 ];
 
-export const footerNav = [
+type FooterLink = { label: string; href: string };
+
+const searchFor = (label: string): FooterLink => ({
+  label,
+  href: `/search?q=${encodeURIComponent(label)}`,
+});
+
+/** Links without a page yet (affiliate, contact, help, about, legal) keep "#". */
+export const footerNav: { title: string | null; links: FooterLink[] }[] = [
   {
     title: "Browse",
     links: [
-      "Featured Courses",
-      "Featured Categories",
-      "Business",
-      "IT",
-      "Design",
+      { label: "Featured Courses", href: "/search" },
+      { label: "Featured Categories", href: "/#categories" },
+      searchFor("Business"),
+      searchFor("IT"),
+      searchFor("Design"),
     ],
   },
   {
     title: null,
-    links: ["Development", "Marketing", "Photography", "Finance", "Sport"],
+    links: ["Development", "Marketing", "Photography", "Finance", "Sport"].map(searchFor),
   },
   {
     title: "Platform",
     links: [
-      "Become a Creator",
-      "Affiliate Program",
-      "Contact",
-      "Help",
-      "About",
+      { label: "Become a Creator", href: "/register" },
+      { label: "Affiliate Program", href: "#" },
+      { label: "Contact", href: "#" },
+      { label: "Help", href: "#" },
+      { label: "About", href: "#" },
     ],
   },
 ];

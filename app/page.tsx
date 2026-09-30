@@ -4,8 +4,8 @@ import { CreatorFeatures } from "@/components/home/creator-features";
 import { Hero } from "@/components/home/hero";
 import { LearningPaths } from "@/components/home/learning-paths";
 import { PartnerStrip } from "@/components/home/partner-strip";
-import { SiteHeader } from "@/components/home/site-header";
-import { SiteFooter } from "@/components/home/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { Testimonials } from "@/components/home/testimonials";
 import { ShadowFilterDefs } from "@/components/ui/shadow-filter";
 
@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <ShadowFilterDefs />
       {/* Positioned over the hero; kept outside <main> so it is the page banner. */}
-      <SiteHeader />
+      <SiteHeader current="home" />
       <main>
         <Hero />
         <PartnerStrip />
