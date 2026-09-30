@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { learningPaths } from "@/lib/home-content";
 import { SectionHeading } from "./section-heading";
 
@@ -18,15 +19,15 @@ export function LearningPaths() {
       <ul className="mx-auto mt-12 grid max-w-[1202px] grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-10 md:mt-[68px] lg:grid-cols-6 lg:gap-4 xl:gap-10">
         {learningPaths.map((path) => (
           <li key={path.label}>
-            <a
-              href="#courses"
+            <Link
+              href={`/search?q=${encodeURIComponent(path.label)}`}
               className="flex aspect-square w-full flex-col items-center justify-center gap-3 rounded-3xl border border-shuttle-200 transition-colors hover:border-primary"
             >
               <span className="flex size-[60px] items-center justify-center rounded-full bg-lime">
                 <Image src={path.icon} alt="" width={36} height={36} />
               </span>
               <span className="text-xl leading-[24px] font-medium text-shuttle-950">{path.label}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

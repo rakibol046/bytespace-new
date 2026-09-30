@@ -18,7 +18,7 @@ export function CourseCatalog() {
 
       <div className="mx-auto mt-14 grid max-w-[1199px] grid-cols-1 justify-items-center gap-10 sm:grid-cols-2 md:mt-[77px] xl:grid-cols-3">
         {courses.map((course) => (
-          <CourseCard key={course.title} course={course} />
+          <CourseCard key={course.slug} course={course} />
         ))}
       </div>
     </section>

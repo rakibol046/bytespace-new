@@ -24,7 +24,7 @@ export function Hero() {
 
           <form
             role="search"
-            action="#courses"
+            action="/search"
             className="flex w-full max-w-[461px] flex-col items-stretch gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-start sm:gap-4"
           >
             <label className="flex h-[52px] items-center gap-2 rounded-3xl bg-white px-6 py-3 outline-offset-2 outline-white focus-within:outline-2 sm:w-[461px]">

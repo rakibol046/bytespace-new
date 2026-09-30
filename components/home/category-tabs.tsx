@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 /**
@@ -36,12 +37,12 @@ export function CategoryTabs({ rows }: { rows: string[][] }) {
             );
           })}
           {rowIndex === rows.length - 1 && (
-            <a
-              href="#categories"
+            <Link
+              href="/search"
               className="self-center text-base leading-[19px] font-medium whitespace-nowrap text-primary hover:underline"
             >
               + More
-            </a>
+            </Link>
           )}
         </div>
       ))}

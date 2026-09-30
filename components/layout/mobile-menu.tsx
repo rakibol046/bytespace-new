@@ -52,7 +52,6 @@ export function MobileMenu({ primary, account }: { primary: NavItem[]; account: 
               <li key={item.label}>
                 <Link
                   href={item.href}
-                  prefetch={false}
                   aria-current={item.current ? "page" : undefined}
                   onClick={() => setOpen(false)}
                   className="block rounded-xl px-3 py-2 text-base leading-6 hover:bg-shuttle-50 aria-[current=page]:font-medium"
